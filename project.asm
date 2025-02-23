@@ -14,8 +14,6 @@ includelib \masm32\lib\masm32.lib
     FName db "Full Name: ", 0
     Fyear db "First Year",10, 0
     Syear db "Second Year", 10, 0
-    Tyear db "Third Year",10, 0
-    fyear db "Fourth Year", 10, 0
     YearLevel db "Select year level: [1] 1st Year [2] 2nd Year [3] 3rd Year [4] 4th Year ",10, 0
     Program db "BACHELOR OF PHYSICAL EDUCATION", 10, 0
     Semester db "Select Semester: [1] First [2] Second [3] Summer: ", 0
@@ -52,8 +50,6 @@ includelib \masm32\lib\masm32.lib
     Sum_Subj1 db "| BPE 122     | Applied Motor Control & Learning of Exercise    |  3  |   0  |   3   |BPE 113|", 10, 0
     Sum_Subj2 db "| BPE 123     | Individual & Dual Sports                        |  3  |   0  |   3   |BPE 113|", 10, 0
     Sum_Subj3 db "| BPE 121     | Physiology of Exercise & Physical Activity      |  3  |   0  |   3   |BPE 112|", 10, 0
-    
-    ;Second Year - First Semester
 
     SY2_F_Sem db "===FIRST SEMESTER SUBJECTS ===", 10, 0
     SY2_F_Subj1 db "| LP 100      | Strategic Lesson Planning and Design            |  3  |  0     |   3   | NONE  |", 10, 0
@@ -83,59 +79,6 @@ includelib \masm32\lib\masm32.lib
     SY2_Sum_Subj1 db "| BPE 222     | Swimming and Aquatics                           |  3  |  0     |   3   |BPE 223|", 10, 0
     SY2_Sum_Subj2 db "| BPE 224     | Art in the K-12 Curriculum                      |  3  |  0     |   3   |EDUC103|", 10, 0
     SY2_Sum_Subj3 db "| BPE 313     | Sports and Exercise Psychology                  |  3  |  0     |   3   |BPE 112|", 10, 0
-
-    ;Third Year - First Semester
-
-    SY3_F_Sem db "===FIRST SEMESTER SUBJECTS ===", 10, 0
-    SY3_F_Subj1 db "| FIL 215     | Malayuning Komunikasyon sa Wikang Filipino                              |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj2 db "| GE 9        | Ethics (Disciplinal)                                                    |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj3 db "| BPE 321     | Team Sports                                                             |  3  |  0     |   3   | BPE 123           |", 10, 0
-    SY3_F_Subj4 db "| BPE 312     | Personal, Community and Environmental Health                            |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj5 db "| BPE 324     | Curriculum and Assessment for Physical Education and Health Education   |  3  |  0     |   3   | EDUC 105, EDUC 106|", 10, 0
-    SY3_F_Subj6 db "| BPE 315     | Music in the K-12 Curriculum                                            |  3  |  0     |   3   | EDUC 103          |", 10, 0
-    SY3_F_Subj7 db "| BPE 412     | Research in School PE 1                                                 |  3  |  0     |   3   | EDUC 107          |", 10, 0
-    SY3_F_Subj8 db "| EDUC 108    | Building and Enhancing New Literacies Across the Curriculum             |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj9 db "| BPE 311     | Coordinated School Health Program                                       |  3  |  0     |   3   | BPE 223           |", 10, 0
-
-    ; Third Year - Second Semester
-    SY3_S_Sem db "===SECOND SEMESTER SUBJECTS ===", 10, 0
-    SY3_S_Subj1 db "| EDUC 109    | The Teaching Profession                                                         |  3  |  0     |   3   | NONE            |", 10, 0
-    SY3_S_Subj2 db "| BPE 323     | Drug Education, Consumer Health Education and Healthy Eating                    |  3  |  0     |   3   | BPE 311, BPE 312|", 10, 0
-    SY3_S_Subj3 db "| BPE 322     | Process if Teaching PE & Health Education                                       |  3  |  0     |   3   | EDUC 103        |", 10, 0
-    SY3_S_Subj4 db "| BPE 327     | Administration and Management of Physical Education and Health Programs         |  3  |  0     |   3   | BPE 123, BPE 312|", 10, 0
-    SY3_S_Subj5 db "| BPE 325/L   | Technology for Teaching and Learning 2 - PE and Health Education                |  3  |  0     |   3   | EDUC 103        |", 10, 0
-    SY3_S_Subj6 db "| CAED 500c   | Career and Personality Development                                              |  3  |  0     |   3   | 3rd yr standing |", 10, 0
-    SY3_S_Subj7 db "| EDUC 11D    | The Teacher and the Community, School Culture and Organizational Leadership     |  2  |  0     |   2   | NONE            |", 10, 0
-    SY3_S_Subj8 db "| 0PE 413     | Research in School PE 2                                                         |  3  |  0     |   3   | BPE 412         |", 10, 0
-
-    ; Third Year - Summer
-    SY3_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
-    SY3_Sum_note db "No courses available for this semester yet.", 10, 0
-
-
-    ;4th Year - First Semester
-
-    SY4_F_Sem db "===FIRST SEMESTER SUBJECTS ===", 10, 0
-    SY4_F_Subj1 db "| FS 1        | Field Study 1 (1st T)                |  3  |  0  |   3   | BPE 413 |", 10, 0
-    SY4_F_Subj2 db "| FS 2        | Field Study 2 (2nd T)                |  3  |  0  |   3   | BPE 413 |", 10, 0
-    SY4_F_Subj3 db "| CA 501      | General Education                    |  5  |  0  |   5   | BPE 413 |", 10, 0
-    SY4_F_Subj4 db "| CA 502      | Professional Education               |  5  |  0  |   5   | BPE 413 |", 10, 0
-
-   ;4th Year - Second Semester
-
-    SY4_S_Sem db "===SECOND SEMESTER SUBJECTS ===", 10, 0
-    SY4_S_Subj1 db "| CA 503      | Specialization                |  5  |  0  |   5   | ---- |", 10, 0
-    SY4_S_Subj2 db "| ED 421      | Teaching Internship           |  6  |  0  |   6   | ---- |", 10, 0
-
-    ; Fourth Year - Summer
-    SY4_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
-    SY4_Sum_note db "No courses available for this semester yet.", 10, 0
-
-
-
-
-
-
 
 
 .data? 
@@ -228,7 +171,6 @@ main:
         invoke StdOut, addr SY2_F_Subj6
         invoke StdOut, addr SY2_F_Subj7
         invoke StdOut, addr SY2_F_Subj8
-        invoke StdOut, addr SY2_F_Subj9
         invoke StdOut, addr Border
     .elseif semester == '2'
         invoke ClearScreen
@@ -262,93 +204,9 @@ main:
     .else
         invoke StdOut, addr InvalidMsg
     .endif
-    .elseif yearlevel == '3'
-    invoke StdOut, addr Semester
-    invoke StdIn, addr semester, 2
 
-    .if semester == '1'
-        invoke ClearScreen
-        invoke StdOut, addr Tyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY3_F_Sem
-        invoke StdOut, addr Border
-        invoke StdOut, addr TableHeader
-        invoke StdOut, addr Border
-        invoke StdOut, addr SY3_F_Subj1
-        invoke StdOut, addr SY3_F_Subj2
-        invoke StdOut, addr SY3_F_Subj3
-        invoke StdOut, addr SY3_F_Subj4
-        invoke StdOut, addr SY3_F_Subj5
-        invoke StdOut, addr SY3_F_Subj6
-        invoke StdOut, addr SY3_F_Subj7
-        invoke StdOut, addr SY3_F_Subj8
-        invoke StdOut, addr SY3_F_Subj9
-        invoke StdOut, addr Border
-    .elseif semester == '2'
-        invoke ClearScreen
-        invoke StdOut, addr Tyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY3_S_Sem
-        invoke StdOut, addr Border
-        invoke StdOut, addr TableHeader
-        invoke StdOut, addr Border
-        invoke StdOut, addr SY3_S_Subj1
-        invoke StdOut, addr SY3_S_Subj2
-        invoke StdOut, addr SY3_S_Subj3
-        invoke StdOut, addr SY3_S_Subj4
-        invoke StdOut, addr SY3_S_Subj5
-        invoke StdOut, addr SY3_S_Subj6
-        invoke StdOut, addr SY3_S_Subj7
-        invoke StdOut, addr SY3_S_Subj8
-        invoke StdOut, addr Border
-    .elseif semester == '3'
-        invoke ClearScreen
-        invoke StdOut, addr Tyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY3_Sum_Sem
-        invoke StdOut, addr SY3_Sum_note
-    .else
-        invoke StdOut, addr InvalidMsg
-    .endif
 
-    .elseif yearlevel == '4'
-    invoke StdOut, addr Semester
-    invoke StdIn, addr semester, 2
-
-    .if semester == '1'
-        invoke ClearScreen
-        invoke StdOut, addr fyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY4_F_Sem
-        invoke StdOut, addr Border
-        invoke StdOut, addr TableHeader
-        invoke StdOut, addr Border
-        invoke StdOut, addr SY4_F_Subj1
-        invoke StdOut, addr SY4_F_Subj2
-        invoke StdOut, addr SY4_F_Subj3
-        invoke StdOut, addr SY4_F_Subj4
-        invoke StdOut, addr Border
-    .elseif semester == '2'
-        invoke ClearScreen
-        invoke StdOut, addr fyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY4_S_Sem
-        invoke StdOut, addr Border
-        invoke StdOut, addr TableHeader
-        invoke StdOut, addr Border
-        invoke StdOut, addr SY4_S_Subj1
-        invoke StdOut, addr SY4_S_Subj2
-        invoke StdOut, addr Border
-    .elseif semester == '3'
-        invoke ClearScreen
-        invoke StdOut, addr fyear
-        invoke StdOut, addr Program
-        invoke StdOut, addr SY4_Sum_Sem
-        invoke StdOut, addr SY4_Sum_note
-    .else
-        invoke StdOut, addr InvalidMsg
-    .endif
-
+    
     .endif
     invoke ExitProcess, 0
 end main
