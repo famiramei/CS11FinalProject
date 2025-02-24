@@ -24,7 +24,8 @@ includelib \masm32\lib\masm32.lib
     ; Table Borders
     Border db "+-------------+-------------------------------------------------+-----+--------+-------+---------+", 10, 0
     TableHeader db "| Subject Code| Subject Title                                   | Lec |   Lab  | Total |  PreReq |", 10, 0
-
+    Border2 db "+-------------+---------------------------------------------------------------------------------+-----+--------+-------+-------------------+", 10, 0
+    TableHeader2 db "| Subject Code| Subject Title                                                                   | Lec |   Lab  | Total |       PreReq      |", 10, 0
     Border3 db "+-------------+-------------------------------------------------------------------------+-----+--------+-------+-------------------+", 10, 0
     TableHeader3 db "| Subject Code| Subject Title                                                           | Lec |   Lab  | Total |       PreReq      |", 10, 0
 
@@ -90,26 +91,26 @@ includelib \masm32\lib\masm32.lib
     ;Third Year - First Semester
 
     SY3_F_Sem db "===FIRST SEMESTER SUBJECTS ===", 10, 0
-    SY3_F_Subj1 db "| FIL 215     | Malayuning Komunikasyon sa Wikang Filipino                              |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj2 db "| GE 9        | Ethics (Disciplinal)                                                    |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj3 db "| BPE 321     | Team Sports                                                             |  3  |  0     |   3   | BPE 123           |", 10, 0
-    SY3_F_Subj4 db "| BPE 312     | Personal, Community and Environmental Health                            |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj5 db "| BPE 324     | Curriculum and Assessment for Physical Education and Health Education   |  3  |  0     |   3   | EDUC 105, EDUC 106|", 10, 0
-    SY3_F_Subj6 db "| BPE 315     | Music in the K-12 Curriculum                                            |  3  |  0     |   3   | EDUC 103          |", 10, 0
-    SY3_F_Subj7 db "| BPE 412     | Research in School PE 1                                                 |  3  |  0     |   3   | EDUC 107          |", 10, 0
-    SY3_F_Subj8 db "| EDUC 108    | Building and Enhancing New Literacies Across the Curriculum             |  3  |  0     |   3   | NONE              |", 10, 0
-    SY3_F_Subj9 db "| BPE 311     | Coordinated School Health Program                                       |  3  |  0     |   3   | BPE 223           |", 10, 0
+    SY3_F_Subj1 db "| FIL 215     | Malayuning Komunikasyon sa Wikang Filipino                              |  3  |   0    |   3   | NONE              |", 10, 0
+    SY3_F_Subj2 db "| GE 9        | Ethics (Disciplinal)                                                    |  3  |   0    |   3   | NONE              |", 10, 0
+    SY3_F_Subj3 db "| BPE 321     | Team Sports                                                             |  3  |   0    |   3   | BPE 123           |", 10, 0
+    SY3_F_Subj4 db "| BPE 312     | Personal, Community and Environmental Health                            |  3  |   0    |   3   | NONE              |", 10, 0
+    SY3_F_Subj5 db "| BPE 324     | Curriculum and Assessment for Physical Education and Health Education   |  3  |   0    |   3   | EDUC 105, EDUC 106|", 10, 0
+    SY3_F_Subj6 db "| BPE 315     | Music in the K-12 Curriculum                                            |  3  |   0    |   3   | EDUC 103          |", 10, 0
+    SY3_F_Subj7 db "| BPE 412     | Research in School PE 1                                                 |  3  |   0    |   3   | EDUC 107          |", 10, 0
+    SY3_F_Subj8 db "| EDUC 108    | Building and Enhancing New Literacies Across the Curriculum             |  3  |   0    |   3   | NONE              |", 10, 0
+    SY3_F_Subj9 db "| BPE 311     | Coordinated School Health Program                                       |  3  |   0    |   3   | BPE 223           |", 10, 0
 
     ; Third Year - Second Semester
     SY3_S_Sem db "===SECOND SEMESTER SUBJECTS ===", 10, 0
-    SY3_S_Subj1 db "| EDUC 109    | The Teaching Profession                                                         |  3  |  0     |   3   | NONE            |", 10, 0
-    SY3_S_Subj2 db "| BPE 323     | Drug Education, Consumer Health Education and Healthy Eating                    |  3  |  0     |   3   | BPE 311, BPE 312|", 10, 0
-    SY3_S_Subj3 db "| BPE 322     | Process if Teaching PE & Health Education                                       |  3  |  0     |   3   | EDUC 103        |", 10, 0
-    SY3_S_Subj4 db "| BPE 327     | Administration and Management of Physical Education and Health Programs         |  3  |  0     |   3   | BPE 123, BPE 312|", 10, 0
-    SY3_S_Subj5 db "| BPE 325/L   | Technology for Teaching and Learning 2 - PE and Health Education                |  3  |  0     |   3   | EDUC 103        |", 10, 0
-    SY3_S_Subj6 db "| CAED 500c   | Career and Personality Development                                              |  3  |  0     |   3   | 3rd yr standing |", 10, 0
-    SY3_S_Subj7 db "| EDUC 11D    | The Teacher and the Community, School Culture and Organizational Leadership     |  2  |  0     |   2   | NONE            |", 10, 0
-    SY3_S_Subj8 db "| 0PE 413     | Research in School PE 2                                                         |  3  |  0     |   3   | BPE 412         |", 10, 0
+    SY3_S_Subj1 db "| EDUC 109    | The Teaching Profession                                                         |  3  |   0    |   3   | NONE              |", 10, 0
+    SY3_S_Subj2 db "| BPE 323     | Drug Education, Consumer Health Education and Healthy Eating                    |  3  |   0    |   3   | BPE 311, BPE 312  |", 10, 0
+    SY3_S_Subj3 db "| BPE 322     | Process if Teaching PE & Health Education                                       |  3  |   0    |   3   | EDUC 103          |", 10, 0
+    SY3_S_Subj4 db "| BPE 327     | Administration and Management of Physical Education and Health Programs         |  3  |   0    |   3   | BPE 123, BPE 312  |", 10, 0
+    SY3_S_Subj5 db "| BPE 325/L   | Technology for Teaching and Learning 2 - PE and Health Education                |  3  |   0    |   3   | EDUC 103          |", 10, 0
+    SY3_S_Subj6 db "| CAED 500c   | Career and Personality Development                                              |  3  |   0    |   3   | 3rd yr standing   |", 10, 0
+    SY3_S_Subj7 db "| EDUC 11D    | The Teacher and the Community, School Culture and Organizational Leadership     |  2  |   0    |   2   | NONE              |", 10, 0
+    SY3_S_Subj8 db "| 0PE 413     | Research in School PE 2                                                         |  3  |   0    |   3   | BPE 412           |", 10, 0
 
     ; Third Year - Summer
     SY3_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
@@ -292,9 +293,9 @@ main:
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY3_S_Sem
-        invoke StdOut, addr Border3
-        invoke StdOut, addr TableHeader3
-        invoke StdOut, addr Border3
+        invoke StdOut, addr Border2
+        invoke StdOut, addr TableHeader2
+        invoke StdOut, addr Border2
         invoke StdOut, addr SY3_S_Subj1
         invoke StdOut, addr SY3_S_Subj2
         invoke StdOut, addr SY3_S_Subj3
@@ -303,7 +304,7 @@ main:
         invoke StdOut, addr SY3_S_Subj6
         invoke StdOut, addr SY3_S_Subj7
         invoke StdOut, addr SY3_S_Subj8
-        invoke StdOut, addr Border3
+        invoke StdOut, addr Border2
     .elseif semester == '3'
         invoke ClearScreen
         invoke StdOut, addr Tyear
