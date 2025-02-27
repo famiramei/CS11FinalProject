@@ -151,6 +151,7 @@ includelib \masm32\lib\masm32.lib
 
 .code
 main:
+    invoke ClearScreen
     invoke StdOut, addr FName
     invoke StdIn, addr fullname, 10
     invoke StdIn, addr dummy, 10
