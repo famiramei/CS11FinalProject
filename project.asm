@@ -11,14 +11,16 @@ includelib \masm32\lib\masm32.lib
 
 .data
     newline db 10,13,0
+    selection db "[1] 1st Year [2] 2nd Year [3] 3rd Year [4] 4th Year", 10, 0
     FName db "Full Name: ", 0
     Fyear db "First Year",10, 0
     Syear db "Second Year", 10, 0
     Tyear db "Third Year",10, 0
     fyear db "Fourth Year", 10, 0
-    YearLevel db "Select year level: [1] 1st Year [2] 2nd Year [3] 3rd Year [4] 4th Year ",10, 0
+    YearLevel db "Select year level: ", 0
     Program db "BACHELOR OF PHYSICAL EDUCATION", 10, 0
-    Semester db "Select Semester: [1] First [2] Second [3] Summer: ", 0
+    semSelect db "[1] First [2] Second [3] Summer", 10,0
+    Semester db "Select Semester: ", 0
     InvalidMsg db "Invalid input!", 10, 0
 
     ; Table Borders
@@ -135,39 +137,173 @@ includelib \masm32\lib\masm32.lib
     SY4_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
     SY4_Sum_note db "No courses available for this semester yet.", 10, 0
 
-
-
-
-
-
-
-
 .data? 
 
     fullname db 100 dup (?)
-    dummy db 100 dup (?)
     yearlevel db 100 dup (?)
     semester db 2 dup(?)
 
 .code
 main:
+    invoke ClearScreen
     invoke StdOut, addr FName
-    invoke StdIn, addr fullname, 10
-    invoke StdIn, addr dummy, 10
+    invoke StdIn, addr fullname, 100
+    invoke ClearScreen
+        ;1st year, 1st sem
+        invoke StdOut, addr fullname
+        invoke StdOut, addr newline
+        invoke StdOut, addr Program
+        invoke StdOut, addr Fyear
+        invoke StdOut, addr F_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr F_Subj1
+        invoke StdOut, addr F_Subj2
+        invoke StdOut, addr F_Subj3
+        invoke StdOut, addr F_Subj4
+        invoke StdOut, addr F_Subj5
+        invoke StdOut, addr F_Subj6
+        invoke StdOut, addr F_Subj7
+        invoke StdOut, addr F_Subj8
+        invoke StdOut, addr Border
+
+        ;1st year, 2nd sem
+        invoke StdOut, addr S_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr S_Subj1
+        invoke StdOut, addr S_Subj2
+        invoke StdOut, addr S_Subj3
+        invoke StdOut, addr S_Subj4
+        invoke StdOut, addr S_Subj5
+        invoke StdOut, addr S_Subj6
+        invoke StdOut, addr S_Subj7
+        invoke StdOut, addr S_Subj8
+        invoke StdOut, addr Border
+
+        ;1st year, Summer
+        invoke StdOut, addr Sum_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr Sum_Subj1
+        invoke StdOut, addr Sum_Subj2
+        invoke StdOut, addr Sum_Subj3
+        invoke StdOut, addr Border
+
+        ;2nd year, 1st sem
+        invoke StdOut, addr Syear
+        invoke StdOut, addr SY2_F_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr SY2_F_Subj1
+        invoke StdOut, addr SY2_F_Subj2
+        invoke StdOut, addr SY2_F_Subj3
+        invoke StdOut, addr SY2_F_Subj4
+        invoke StdOut, addr SY2_F_Subj5
+        invoke StdOut, addr SY2_F_Subj6
+        invoke StdOut, addr SY2_F_Subj7
+        invoke StdOut, addr SY2_F_Subj8
+        invoke StdOut, addr SY2_F_Subj9
+        invoke StdOut, addr Border
+
+        ;2nd year, 2nd sem
+        invoke StdOut, addr SY2_S_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr SY2_S_Subj1
+        invoke StdOut, addr SY2_S_Subj2
+        invoke StdOut, addr SY2_S_Subj3
+        invoke StdOut, addr SY2_S_Subj4
+        invoke StdOut, addr SY2_S_Subj5
+        invoke StdOut, addr SY2_S_Subj6
+        invoke StdOut, addr SY2_S_Subj7
+        invoke StdOut, addr SY2_S_Subj8
+        invoke StdOut, addr Border
+
+        ;2nd year, Summer
+        invoke StdOut, addr SY2_Sum_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr SY2_Sum_Subj1
+        invoke StdOut, addr SY2_Sum_Subj2
+        invoke StdOut, addr SY2_Sum_Subj3
+        invoke StdOut, addr Border
+
+        ;3rd year, 1st sem
+        invoke StdOut, addr Tyear
+        invoke StdOut, addr SY3_F_Sem
+        invoke StdOut, addr Border3
+        invoke StdOut, addr TableHeader3
+        invoke StdOut, addr Border3
+        invoke StdOut, addr SY3_F_Subj1
+        invoke StdOut, addr SY3_F_Subj2
+        invoke StdOut, addr SY3_F_Subj3
+        invoke StdOut, addr SY3_F_Subj4
+        invoke StdOut, addr SY3_F_Subj5
+        invoke StdOut, addr SY3_F_Subj6
+        invoke StdOut, addr SY3_F_Subj7
+        invoke StdOut, addr SY3_F_Subj8
+        invoke StdOut, addr SY3_F_Subj9
+        invoke StdOut, addr Border3
+
+        ;3rd year, 2nd sem
+         invoke StdOut, addr SY3_S_Sem
+        invoke StdOut, addr Border2
+        invoke StdOut, addr TableHeader2
+        invoke StdOut, addr Border2
+        invoke StdOut, addr SY3_S_Subj1
+        invoke StdOut, addr SY3_S_Subj2
+        invoke StdOut, addr SY3_S_Subj3
+        invoke StdOut, addr SY3_S_Subj4
+        invoke StdOut, addr SY3_S_Subj5
+        invoke StdOut, addr SY3_S_Subj6
+        invoke StdOut, addr SY3_S_Subj7
+        invoke StdOut, addr SY3_S_Subj8
+        invoke StdOut, addr Border2
+
+        ;4th year, 1st sem
+        invoke StdOut, addr fyear
+        invoke StdOut, addr SY4_F_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr SY4_F_Subj1
+        invoke StdOut, addr SY4_F_Subj2
+        invoke StdOut, addr SY4_F_Subj3
+        invoke StdOut, addr SY4_F_Subj4
+        invoke StdOut, addr Border        
+
+        ;4th year, 2nd sem
+        invoke StdOut, addr SY4_S_Sem
+        invoke StdOut, addr Border
+        invoke StdOut, addr TableHeader
+        invoke StdOut, addr Border
+        invoke StdOut, addr SY4_S_Subj1
+        invoke StdOut, addr SY4_S_Subj2
+        invoke StdOut, addr Border
+
+
+    invoke StdOut, addr selection
     invoke StdOut, addr YearLevel
     invoke StdIn, addr yearlevel, 10
 
     .if yearlevel == '1'
+    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
     
     .if semester == '1'
         invoke ClearScreen
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
         invoke StdOut, addr newline
         invoke StdOut, addr Fyear
-        invoke StdOut, addr Program
+       
         invoke StdOut, addr F_Sem
         invoke StdOut, addr Border
         invoke StdOut, addr TableHeader
@@ -185,9 +321,9 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
         invoke StdOut, addr newline
         invoke StdOut, addr Fyear
+        invoke StdOut, addr Program
         invoke StdOut, addr S_Sem
         invoke StdOut, addr Border
         invoke StdOut, addr TableHeader
@@ -205,7 +341,6 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
         invoke StdOut, addr newline
         invoke StdOut, addr Fyear
         invoke StdOut, addr Sum_Sem
@@ -221,6 +356,7 @@ main:
     .endif
 
     .elseif yearlevel == '2'
+    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
     
@@ -228,7 +364,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
@@ -250,7 +386,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
@@ -271,7 +407,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
@@ -287,6 +423,7 @@ main:
         invoke StdOut, addr InvalidMsg
     .endif
     .elseif yearlevel == '3'
+    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
 
@@ -294,7 +431,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
@@ -316,7 +453,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
@@ -337,7 +474,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
@@ -348,6 +485,7 @@ main:
     .endif
 
     .elseif yearlevel == '4'
+    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
 
@@ -355,7 +493,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
@@ -372,7 +510,7 @@ main:
     
         invoke ClearScreen
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
@@ -387,7 +525,7 @@ main:
         invoke ClearScreen
         
         invoke StdOut, addr fullname
-        invoke StdOut, addr dummy
+        
         invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
@@ -398,5 +536,6 @@ main:
     .endif
 
     .endif
+    invoke ClearScreen
     invoke ExitProcess, 0
 end main
