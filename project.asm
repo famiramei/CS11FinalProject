@@ -143,22 +143,31 @@ includelib \masm32\lib\masm32.lib
     SY4_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
     SY4_Sum_note db "No courses available for this semester yet.", 10, 0
 
+
+
+
+
+
+
 .data? 
 
     fullname db 100 dup (?)
+    dummy db 100 dup (?)
     yearlevel db 100 dup (?)
     semester db 2 dup(?)
 
 .code
 main:
-    invoke ClearScreen
     invoke StdOut, addr FName
-    invoke StdIn, addr fullname, 100
+    invoke StdIn, addr fullname, 50
     invoke ClearScreen
     invoke StdOut, addr prospectus
     invoke StdOut, addr newline
     invoke StdOut, addr newline
-        ;1st year, 1st sem
+    
+
+
+         ;1st year, 1st sem
         invoke StdOut, addr Sname
         invoke StdOut, addr fullname
         invoke StdOut, addr newline
@@ -290,23 +299,20 @@ main:
         invoke StdOut, addr SY4_total_2
         invoke StdOut, addr Border
 
-
-    invoke StdOut, addr selection
     invoke StdOut, addr YearLevel
     invoke StdIn, addr yearlevel, 10
 
     .if yearlevel == '1'
-    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
     
     .if semester == '1'
         invoke ClearScreen
-        invoke StdOut, addr Sname
+        invoke StdOut, addr FName
         invoke StdOut, addr fullname
         invoke StdOut, addr newline
         invoke StdOut, addr Fyear
-       
+        invoke StdOut, addr Program
         invoke StdOut, addr F_Sem
         invoke StdOut, addr Border
         invoke StdOut, addr TableHeader
@@ -322,11 +328,7 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '2'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        invoke StdOut, addr newline
         invoke StdOut, addr Fyear
-        invoke StdOut, addr Program
         invoke StdOut, addr S_Sem
         invoke StdOut, addr Border
         invoke StdOut, addr TableHeader
@@ -342,9 +344,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '3'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        invoke StdOut, addr newline
         invoke StdOut, addr Fyear
         invoke StdOut, addr Sum_Sem
         invoke StdOut, addr Border
@@ -359,16 +358,11 @@ main:
     .endif
 
     .elseif yearlevel == '2'
-    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
     
     .if semester == '1'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
         invoke StdOut, addr SY2_F_Sem
@@ -387,10 +381,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '2'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
         invoke StdOut, addr SY2_S_Sem
@@ -408,10 +398,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '3'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Syear
         invoke StdOut, addr Program
         invoke StdOut, addr SY2_Sum_Sem
@@ -426,16 +412,11 @@ main:
         invoke StdOut, addr InvalidMsg
     .endif
     .elseif yearlevel == '3'
-    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
 
     .if semester == '1'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY3_F_Sem
@@ -454,10 +435,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '2'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY3_S_Sem
@@ -475,10 +452,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '3'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr Tyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY3_Sum_Sem
@@ -488,16 +461,11 @@ main:
     .endif
 
     .elseif yearlevel == '4'
-    invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
     invoke StdIn, addr semester, 2
 
     .if semester == '1'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY4_F_Sem
@@ -510,11 +478,7 @@ main:
         invoke StdOut, addr SY4_F_Subj4
         invoke StdOut, addr Border
     .elseif semester == '2'
-    
         invoke ClearScreen
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY4_S_Sem
@@ -526,10 +490,6 @@ main:
         invoke StdOut, addr Border
     .elseif semester == '3'
         invoke ClearScreen
-        
-        invoke StdOut, addr fullname
-        
-        invoke StdOut, addr newline
         invoke StdOut, addr fyear
         invoke StdOut, addr Program
         invoke StdOut, addr SY4_Sum_Sem
@@ -539,6 +499,5 @@ main:
     .endif
 
     .endif
-    invoke ClearScreen
     invoke ExitProcess, 0
 end main
