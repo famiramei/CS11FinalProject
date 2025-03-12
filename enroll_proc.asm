@@ -180,7 +180,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -190,8 +190,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -381,7 +380,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -391,8 +390,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -581,7 +579,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -591,8 +589,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -783,7 +780,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -793,8 +790,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -985,7 +981,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -995,8 +991,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1185,7 +1180,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -1195,8 +1190,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1387,7 +1381,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -1397,8 +1391,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1588,7 +1581,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -1598,8 +1591,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1788,7 +1780,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -1798,8 +1790,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1988,7 +1979,7 @@ Loops:
 
     duplicateError:
         invoke StdOut, addr duplicateMsg
-        jmp Loops
+        jmp checkUnitLimit
 
     displayError:
         cmp ebx, 1
@@ -1998,8 +1989,7 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        mov byte ptr [selSubject], 0
-        jmp Loops
+        jmp checkUnitLimit
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg

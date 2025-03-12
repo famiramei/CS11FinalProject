@@ -223,5 +223,5 @@
     totalUnitsEnrolled dd 0
     tempTotalUnitsEnrolled db 100 dup(?)
     invalidInputMsg db 10, 10, 9, "INVALID! Please enter the valid subject letter.", 10, 0
-    limitedUnitsMsg db 10, 10, 9, "MAX UNITS REACHED! Enter subject letters again.", 10, 0
+    limitedUnitsMsg db 10, 10, 9, "MAX UNITS REACHED! Enroll subjects again.", 10, 0
     duplicateMsg db 10, 10, 9, "Error: Subject already enrolled!", 0
