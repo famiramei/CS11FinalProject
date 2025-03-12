@@ -58,7 +58,7 @@ Loops:
         mov edi, OFFSET subS11
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -258,7 +258,7 @@ Loops:
         mov edi, OFFSET subS12
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -457,7 +457,7 @@ Loops:
         mov edi, OFFSET subSS1
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -658,7 +658,7 @@ Loops:
         mov edi, OFFSET subS21
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -859,7 +859,7 @@ Loops:
         mov edi, OFFSET subS22
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1058,7 +1058,7 @@ Loops:
         mov edi, OFFSET subSS2
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1259,7 +1259,7 @@ Loops:
         mov edi, OFFSET subS31
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1459,7 +1459,7 @@ Loops:
         mov edi, OFFSET subS32
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1658,7 +1658,7 @@ Loops:
         mov edi, OFFSET subS41
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1857,7 +1857,7 @@ Loops:
         mov edi, OFFSET subS42
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 26
+        cmp totalUnitsEnrolled, 27
         jg unitLimitExceeded
         jmp parseInput
 
