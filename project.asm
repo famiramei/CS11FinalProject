@@ -15,12 +15,17 @@ include enroll_proc.asm
 .code
 main:
     invoke ClearScreen
+    invoke StdOut, addr UM
+    invoke StdOut, addr UM1
     invoke StdOut, addr FName
     invoke StdIn, addr fullname, 100
     invoke ClearScreen
     invoke StdOut, addr prospectus
     invoke StdOut, addr newline
     invoke StdOut, addr newline
+
+    ; DISPLAYS PROSPECTUS
+
     full_prospectus:
         invoke StdOut, addr Sname
         invoke StdOut, addr fullname
@@ -153,10 +158,12 @@ main:
         invoke StdOut, addr SY4_total_2
         invoke StdOut, addr Border
 
+        ; DISPLAYS OPTIONS FOR SELECTING YEAR AND SEMESTER
+    ask2:
     invoke StdOut, addr selection
     invoke StdOut, addr YearLevel
     invoke StdIn, addr yearlevel, 10
-
+    ask:
     .if yearlevel == '1'
     invoke StdOut, addr semSelect
     invoke StdOut, addr Semester
@@ -229,6 +236,7 @@ main:
         call enroll13
     .else
         invoke StdOut, addr InvalidMsg
+        jmp ask
     .endif
 
     .elseif yearlevel == '2'
@@ -303,6 +311,7 @@ main:
         call enroll23
     .else
         invoke StdOut, addr InvalidMsg
+        jmp ask
     .endif
     .elseif yearlevel == '3'
     invoke StdOut, addr semSelect
@@ -377,6 +386,7 @@ main:
 
     .else
         invoke StdOut, addr InvalidMsg
+        jmp ask
     .endif
 
     .elseif yearlevel == '4'
@@ -440,8 +450,11 @@ main:
         .endif
     .else
         invoke StdOut, addr InvalidMsg
+        jmp ask
     .endif
-
+    .else
+        invoke StdOut, addr InvalidMsg
+        jmp ask2
     .endif
     invoke ExitProcess, 0
     

@@ -1,5 +1,6 @@
 
 .DATA
+    ; Holds all the data
     newline db 10,13,0
     selection db "[1] 1st Year [2] 2nd Year [3] 3rd Year [4] 4th Year", 10, 0
     FName db "Full Name: ", 0
@@ -9,6 +10,8 @@
     fyear db "Fourth Year", 10, 0
     YearLevel db "Select year level: ", 0
     prospectus db 9,9,9,9,9,9, "BACHELOR OF PHYSICAL EDUCATION PROSPECTUS", 10, 0
+    UM db 9,9,9,9,9,9, "University of Mindanao", 10, 0
+    UM1 db 9,9,9,9, "ENROLL HERE FOR THE BACHELOR OF PHYSICAL EDUCATION", 10, 0
     Sname db "Student's Name  :   ", 0
     Program db "Program/Course  :   BACHELOR OF PHYSICAL EDUCATION", 10, 0
     semSelect db "[1] First [2] Second [3] Summer", 10,0
@@ -134,6 +137,7 @@
     SY4_Sum_Sem db "===SUMMER SUBJECTS ===", 10, 0
     SY4_Sum_note db "No courses available for this semester yet.", 10, 0
 
+    ; Subject Selections
     selection1 db 10, 9, "| A - GE 2     | B - GE 1    | C - GE 4     | D - GE 20   |", 0
     selection2 db 10, 9, "| E - BPE 111  | F - GE 15   | G - PANF 1   | H - NSTP 1  |", 0
 
@@ -145,6 +149,7 @@
     S_selection1 db 10, 9, "| A - LP 100    |  B - BPE 213     | C - GE 7    |", 0
     S_selection2 db 10, 9, "| D - EDUC 102  |  E - BPE 211     | F - BPE 212 |", 0
     S_selection3 db 10, 9, "| G - GE 11     |  H - EDUC 105    | I - PANF 3  |", 0
+    S_selection4 db 10, 9, "| J - GE 2      |  K - GE 1        | L - GE 4    |", 0
 
     S2_selection1 db 10, 9, "| A - GE 5      |  B - EDUC 107   | C - EDUC 103  |", 0
     S2_selection2 db 10, 9, "| D - EDUC 104  |  E - EDUC 106   | F - BPE 221   |", 0
@@ -166,10 +171,11 @@
     totalUnitsBorder db "                                      |", 10, 0
 
 
+    ; Subject reference
     inputSubjects1 dd offset F_Subj1, offset F_Subj2, offset F_Subj3, offset F_Subj4, offset F_Subj5, offset F_Subj6, offset F_Subj7, offset F_Subj8
     inputSubjects2 dd offset S_Subj1, offset S_Subj2, offset S_Subj3, offset S_Subj4, offset S_Subj5, offset S_Subj6, offset S_Subj7, offset S_Subj8
     inputSubjects3 dd offset Sum_Subj1, offset Sum_Subj2, offset Sum_Subj3
-    inputSubjects4 dd offset SY2_F_Subj1, offset SY2_F_Subj2, offset SY2_F_Subj3, offset SY2_F_Subj4, offset SY2_F_Subj5, offset SY2_F_Subj6, offset SY2_F_Subj7, offset SY2_F_Subj8, offset SY2_F_Subj9
+    inputSubjects4 dd offset SY2_F_Subj1, offset SY2_F_Subj2, offset SY2_F_Subj3, offset SY2_F_Subj4, offset SY2_F_Subj5, offset SY2_F_Subj6, offset SY2_F_Subj7, offset SY2_F_Subj8, offset SY2_F_Subj9,  offset F_Subj1, offset F_Subj2, offset F_Subj3
     inputSubjects5 dd offset SY2_S_Subj1, offset SY2_S_Subj2, offset SY2_S_Subj3, offset SY2_S_Subj4, offset SY2_S_Subj5, offset SY2_S_Subj6, offset SY2_S_Subj7, offset SY2_S_Subj8, offset SY2_S_Subj9
     inputSubjects6 dd offset SY2_Sum_Subj1, offset SY2_Sum_Subj2, offset SY2_Sum_Subj3
     inputSubjects7 dd offset SY3_F_Subj1, offset SY3_F_Subj2, offset SY3_F_Subj3, offset SY3_F_Subj4, offset SY3_F_Subj5, offset SY3_F_Subj6, offset SY3_F_Subj7, offset SY3_F_Subj8, offset SY3_F_Subj9
@@ -177,10 +183,11 @@
     inputSubjects9 dd offset SY4_F_Subj1, offset SY4_F_Subj2, offset SY4_F_Subj3, offset SY4_F_Subj4
     inputSubjects10 dd offset SY4_S_Subj1, offset SY4_S_Subj2
 
+    ; Options
     addSubject db 10, "[1] Add Another Subject", 10, 0
     enrollCourse db "[2] Submit Enrollment", 10, 0
     return db 10, "[1] Return", 10, 0
-    again db 10, "[1] Enroll new student", 10, 0
+    again db 10, "[1] Try Again", 10, 0
     exits db "[2] Exit", 10, 0
     pick db "Select: ", 0
     congrats db 10, 10, 9, 9, 9, 9,9,9, "YOU ARE OFFICIALLY ENROLLED!", 0
@@ -200,7 +207,8 @@
     year41 db "Year/Semester   :   4th Year/ 1st Semester", 0
     year42 db "Year/Semester   :   4th Year/ 2nd Semester", 0
 
-    
+    ; VARIABLES
+
     selSubject db 100 dup(?)
     blank db 0 dup(?)
     options db 100 dup(?)
@@ -209,10 +217,12 @@
     yearlevel db 100 dup (?)
     semester db 2 dup(?)
     index dd 0
+
+    ; UNITS REFERENCE
     subS11 dd 6, 3, 3, 3, 3, 3, 2, 3
     subS12 dd 6, 3, 3, 3, 3, 3, 2, 3
     subSS1 dd 3, 3, 3
-    subS21 dd 3, 3, 3, 3, 3, 3, 2, 3, 3
+    subS21 dd 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3
     subS22 dd 3, 3, 3, 3, 3, 3, 2, 3, 3
     subSS2 dd 3, 3, 3
     subS31 dd 3, 3, 3, 3, 3, 3, 3, 3, 3
@@ -220,8 +230,9 @@
     subS41 dd 3, 3, 5, 5
     subS42 dd 5, 6
 
+    ; Errors
     totalUnitsEnrolled dd 0
     tempTotalUnitsEnrolled db 100 dup(?)
     invalidInputMsg db 10, 10, 9, "INVALID! Please enter the valid subject letter.", 10, 0
     limitedUnitsMsg db 10, 10, 9, "MAX UNITS REACHED! Enroll subjects again.", 10, 0
-    duplicateMsg db 10, 10, 9, "Error: Subject already enrolled!", 0
+    duplicateMsg db 10, 10, 9, 9, 9, 9, 9, 9, "Error: Subject already enrolled!", 0

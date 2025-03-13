@@ -1,9 +1,11 @@
 .CODE
 enroll11 PROC
+        ; Options
         invoke StdOut, addr selection1
         invoke StdOut, addr selection2
 
 Loops:
+        ; Enrollment Loop
         invoke StdOut, addr inputSubject
         invoke StdIn, addr tempoSub, sizeof tempoSub
         mov al, [tempoSub]   
@@ -13,6 +15,7 @@ Loops:
         mov esi, OFFSET selSubject
         mov edi, OFFSET tempoSub
 
+    ; CHECKS ALL DUPLICATE INPUTS
     checkDuplicate:
         mov al, [esi]   
         cmp al, 0       
@@ -31,6 +34,7 @@ Loops:
         inc esi
         jmp checkDuplicate
 
+    ; APPENDS THE INPUTTED LETTER TO THE FINAL VARIABLE FOR ENROLLMENT
     appendSubject:
         invoke lstrcat, addr selSubject, addr tempoSub
         mov edi, OFFSET selSubject
@@ -41,27 +45,30 @@ Loops:
         mov esi, offset selSubject 
         xor ebx, ebx             
 
+        ; PARSES STRING TO INT AS REFERENCE FOR THE FETCHING OF SUBJECT DATA
+
     parseInput:
         mov al, [esi]
         cmp al, 0
-        je checkUnitLimit  
+        je checkUnitLimit   
         inc esi  
         cmp al, ' '
         je parseInput
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'H'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS11
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
+        ; ERROR HANDLING
     invalidInput:
         mov ebx, 1
         jmp checkUnitLimit
@@ -69,6 +76,8 @@ Loops:
     unitLimitExceeded:
         mov ebx, 2 
         jmp checkUnitLimit
+
+        ; CHECKS IF THE UNITS EXCEEDED 26
 
     checkUnitLimit:
         cmp ebx, 1
@@ -81,6 +90,8 @@ Loops:
         invoke StdOut, addr TableHeader
         invoke StdOut, addr Border
         mov esi, OFFSET selSubject
+
+        ; DISPLAY SUBJECTS
 
     displaySubjects:
         mov al, [esi]
@@ -97,6 +108,7 @@ Loops:
         invoke StdOut, edi
         jmp displaySubjects
 
+        ; DISPLAY TOTAL UNITS ENROLLED
     displayTotalUnits:
         invoke StdOut, addr Border
         invoke StdOut, addr totalUnits
@@ -119,6 +131,8 @@ Loops:
         je finalizeEnrollment
 
         jmp displayTotalUnits 
+
+        ; DISPLAY THE FINAL ENROLLED SUBJECTS
 
     finalizeEnrollment:
         invoke ClearScreen
@@ -174,6 +188,8 @@ Loops:
         cmp al, '2'
         je exitProgram
 
+        ; PRINTING OF ERRORS
+
     exitProgram:
         invoke StdOut, addr logout
         invoke ExitProcess, 0
@@ -190,7 +206,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -251,14 +268,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'H'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS12
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -390,7 +407,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -450,14 +468,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'C'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subSS1
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -589,7 +607,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -602,6 +621,7 @@ enroll21 PROC
         invoke StdOut, addr S_selection1
         invoke StdOut, addr S_selection2
         invoke StdOut, addr S_selection3
+        invoke StdOut, addr S_selection4
 
 Loops:
         invoke StdOut, addr inputSubject
@@ -651,14 +671,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'L'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS21
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -790,7 +810,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -852,14 +873,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'I'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS22
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -991,7 +1012,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1051,14 +1073,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'C'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subSS2
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1189,8 +1211,9 @@ Loops:
         je unitLimitError
 
     invalidInputError:
-        invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+       invoke StdOut, addr invalidInputMsg
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1252,14 +1275,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'I'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS31
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1391,7 +1414,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1452,14 +1476,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'H'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS32
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1591,7 +1615,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1651,14 +1676,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'D'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS41
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1790,7 +1815,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
@@ -1850,14 +1876,14 @@ Loops:
         and al, 0DFh  
         cmp al, 'A'
         jl invalidInput
-        cmp al, 'K'
+        cmp al, 'B'
         jg invalidInput
         sub al, 'A'
         movzx eax, al
         mov edi, OFFSET subS42
         mov ecx, [edi + eax * 4] 
         add totalUnitsEnrolled, ecx 
-        cmp totalUnitsEnrolled, 27
+        cmp totalUnitsEnrolled, 26
         jg unitLimitExceeded
         jmp parseInput
 
@@ -1989,7 +2015,8 @@ Loops:
 
     invalidInputError:
         invoke StdOut, addr invalidInputMsg
-        jmp checkUnitLimit
+        mov byte ptr [selSubject], 0
+        jmp Loops
 
     unitLimitError:
         invoke StdOut, addr limitedUnitsMsg
